@@ -1,4 +1,4 @@
-# eGloo Serverless Monorepo
+# eGloo Monorepo
 
 Introduction...
 
