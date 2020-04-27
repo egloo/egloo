@@ -78,7 +78,7 @@ aliases:
   - &build_web
     run:
       name: Build web
-      command: cd web && yarn deploy:prod
+      command: cd web && yarn && yarn deploy:prod
 
   - &run_linter
     run:
