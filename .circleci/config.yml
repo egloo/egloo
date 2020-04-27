@@ -21,7 +21,7 @@ aliases:
     docker:
       - image: circleci/node:carbon
 
-    working_directory: ~/repo
+    working_directory: ~/egloo
 
   - &checkout checkout
 
@@ -46,14 +46,14 @@ aliases:
     save_cache:
       paths:
         - node_modules
-        - frontend/node_modules
-        - services/common/node_modules
-        - services/api-service/node_modules
-        - services/email-service/node_modules
-        - services/api-service/node_modules
-        - services/db-service/node_modules
-        - services/file-service/node_modules
-        - services/kinesis-service/node_modules
+        - web/node_modules
+        # - services/common/node_modules
+        # - services/api-service/node_modules
+        # - services/email-service/node_modules
+        # - services/api-service/node_modules
+        # - services/db-service/node_modules
+        # - services/file-service/node_modules
+        # - services/kinesis-service/node_modules
       key: dependencies-cache-{{ checksum "yarn.lock" }}
 
   - &restore_cache
