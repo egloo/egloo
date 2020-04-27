@@ -105,3 +105,34 @@ output "egloo_security_group_id" {
   description = "The security group ID of the cluster"
   value       = module.rds_aurora_egloo_cluster.this_security_group_id
 }
+
+// iam_users
+output "iam_iam_user_cooper_access_key" {
+  description = "The access key for cooper"
+  value = module.iam_iam_user_cooper.this_iam_access_key_id
+}
+
+output "iam_iam_user_cooper_access_key_secret" {
+  description = "The access key secret for cooper"
+  value = module.iam_iam_user_cooper.this_iam_access_key_secret
+}
+
+output "iam_iam_user_cooper_user_arn" {
+  description = "The user arn for cooper"
+  value = module.iam_iam_user_cooper.this_iam_user_arn
+}
+
+output "iam_iam_user_circleci_access_key" {
+  description = "The access key for circleci"
+  value = module.iam_iam_user_circleci.this_iam_access_key_id
+}
+
+output "iam_iam_user_circleci_access_key_secret" {
+  description = "The access key secret for circleci"
+  value = module.iam_iam_user_circleci.this_iam_access_key_secret
+}
+
+output "iam_iam_user_circleci_user_arn" {
+  description = "The user arn for circleci"
+  value = module.iam_iam_user_circleci.this_iam_user_arn
+}

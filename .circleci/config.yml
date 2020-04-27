@@ -78,7 +78,11 @@ aliases:
   - &build_web
     run:
       name: Build web
-      command: cd web && yarn && yarn deploy:prod
+      command: |
+        cd web
+        yarn
+        yarn deploy:prod
+        aws cloudfront create-invalidation --distribution-id $PROD_WEB_CLOUDFRONT_DISTRIBUTION_ID --paths *
 
   - &run_linter
     run:
