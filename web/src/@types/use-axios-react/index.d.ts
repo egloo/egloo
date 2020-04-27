@@ -1,1 +1,1 @@
-declare module 'use-axios-react';
+declare module '@egloojs/use-axios-react';

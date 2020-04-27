@@ -1,3 +1,4 @@
+import { useGetData } from '@egloojs/use-axios-react'
 import { /*faBiohazard,*/ faMinusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,7 +9,6 @@ import { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import { useGetData } from "use-axios-react"
 import profilePic from '../profile_pic_daedalusx.jpg'
 import { StatusUpdate } from './StatusUpdate'
 

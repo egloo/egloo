@@ -1,10 +1,10 @@
 
 // import { /*faBiohazard,*/ faCoffee } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { KeycloakProvider } from '@react-keycloak/web';
 import axios from 'axios'
 import * as React from 'react'
 import * as ReactGA from 'react-ga'
-import { KeycloakProvider } from 'react-keycloak';
 import { BrowserRouter as Router, Route/*, Link*/ } from "react-router-dom"
 import { Stocks } from './Components/StocksTable'
 // import Mailto from 'react-protected-mailto'

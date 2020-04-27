@@ -1,3 +1,4 @@
+import { useGetData } from '@egloojs/use-axios-react'
 import { /*faBiohazard,*/ faHome, faInfinity, faUser, faUserFriends } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +8,6 @@ import * as React from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useGetData } from "use-axios-react"
 
 const useStyles = makeStyles(theme => ({
   root: {
