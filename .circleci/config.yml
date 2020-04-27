@@ -136,28 +136,28 @@ jobs:
       - *setup_path_env
       - *install_aws_cli
 
-      - run:
-          name: Setup QA Services Environment
-          command: >
-            sed -i "s/REGION_VALUE/$QA_REGION/g" services/common/environment/config.example.json &&
-            sed -i "s/AUTH0_CLIENT_ID_VALUE/$QA_AUTH0_CLIENT_ID/g" services/common/environment/config.example.json &&
-            mv services/common/environment/config.example.json services/common/environment/config.qa.json &&            
-            echo $QA_AUTH0_PUBLIC_KEY | base64 --decode --ignore-garbage > services/common/environment/public_key.qa.pem &&
+      # - run:
+      #     name: Setup QA Services Environment
+      #     command: >
+      #       sed -i "s/REGION_VALUE/$QA_REGION/g" services/common/environment/config.example.json &&
+      #       sed -i "s/AUTH0_CLIENT_ID_VALUE/$QA_AUTH0_CLIENT_ID/g" services/common/environment/config.example.json &&
+      #       mv services/common/environment/config.example.json services/common/environment/config.qa.json &&            
+      #       echo $QA_AUTH0_PUBLIC_KEY | base64 --decode --ignore-garbage > services/common/environment/public_key.qa.pem &&
 
-            sed -i "s/SENDGRID_API_KEY_VALUE/$QA_SENDGRID_API_KEY/g" services/email-service/config.example.json &&
-            mv services/email-service/config.example.json services/email-service/config.qa.json
-      - run:
-          name: Deploy services to QA
-          command: yarn deploy:qa
-          no_output_timeout: 30m
+      #       sed -i "s/SENDGRID_API_KEY_VALUE/$QA_SENDGRID_API_KEY/g" services/email-service/config.example.json &&
+      #       mv services/email-service/config.example.json services/email-service/config.qa.json
+      # - run:
+      #     name: Deploy services to QA
+      #     command: yarn deploy:qa
+      #     no_output_timeout: 30m
 
-      - run:
-          name: Setup QA frontend Environment
-          command: >
-            echo "REACT_APP_AUTH0_AUDIENCE=$QA_AUTH0_AUDIENCE" >> frontend/.env.production.local &&
-            echo "REACT_APP_AUTH0_CLIENT_ID=$QA_AUTH0_CLIENT_ID" >> frontend/.env.production.local &&
-            echo "REACT_APP_AUTH0_DOMAIM=$QA_AUTH0_DOMAIM" >> frontend/.env.production.local &&
-            echo "GENERATE_SOURCEMAP=true" >> .env.production.local
+      # - run:
+      #     name: Setup QA frontend Environment
+      #     command: >
+      #       echo "REACT_APP_AUTH0_AUDIENCE=$QA_AUTH0_AUDIENCE" >> frontend/.env.production.local &&
+      #       echo "REACT_APP_AUTH0_CLIENT_ID=$QA_AUTH0_CLIENT_ID" >> frontend/.env.production.local &&
+      #       echo "REACT_APP_AUTH0_DOMAIM=$QA_AUTH0_DOMAIM" >> frontend/.env.production.local &&
+      #       echo "GENERATE_SOURCEMAP=true" >> .env.production.local
 
       - *build_frontend
 
