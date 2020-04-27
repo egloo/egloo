@@ -1,0 +1,41 @@
+{
+  "name": "egloo-monorepo",
+  "author": "George Cooper <george@egloo.com>",
+  "license": "AGPL-3.0-or-later",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "frontends/*"
+  ],
+  "scripts": {
+    "build:frontend": "lerna run build --scope frontend",
+    "lint": "lerna exec yarn lint",
+    "test": "lerna exec yarn test",
+    "test:ci": "lerna exec --concurrency 1 yarn test:ci",
+    "test:e2e": "lerna run --concurrency 1 test:e2e",
+    "coverage": "lerna exec --concurrency 1 yarn coverage",
+    "deploy:dev": "lerna run --concurrency 1 deploy --ignore 'frontend' -- --stage dev && lerna run deploy --scope frontend -- --stage dev",
+    "deploy:qa": "lerna run --concurrency 1 deploy --ignore 'frontend' -- --stage qa && lerna run deploy --scope frontend -- --stage qa",
+    "deploy:prod": "lerna run --concurrency 1 deploy --ignore 'frontend' -- --stage prod && lerna run deploy --scope frontend -- --stage prod",
+    "publish:frontend:dev": "lerna run publish --scope frontend -- --stage dev",
+    "publish:frontend:qa": "lerna run publish --scope frontend -- --stage qa",
+    "publish:frontend:prod": "lerna run publish --scope frontend -- --stage prod",
+    "run:all:dev": "yarn deploy:dev && yarn build:frontend && yarn publish:frontend:dev",
+    "run:all:qa": "yarn deploy:qa && yarn build:frontend && yarn publish:frontend:qa",
+    "run:all:prod": "yarn deploy:prod && yarn build:frontend && yarn publish:frontend:prod",
+    "remove:all:dev": "lerna run --concurrency 1 remove --scope 'frontend' -- --stage dev && lerna run --concurrency 1 remove --ignore 'frontend' -- --stage dev",
+    "remove:all:qa": "lerna run --concurrency 1 remove --scope 'frontend' -- --stage qa && lerna run --concurrency 1 remove --ignore 'frontend' -- --stage qa",
+    "remove:all:prod": "lerna run --concurrency 1 remove --scope 'frontend' -- --stage prod && lerna run --concurrency 1 remove --ignore 'frontend' -- --stage prod",
+    "prettier": "lerna exec yarn prettier",
+    "prettier:ci": "lerna exec yarn prettier:ci"
+  },
+  "devDependencies": {
+    "jest-junit": "10.0.0",
+    "lerna": "3.20.2",
+    "prettier": "2.0.5"
+  },
+  "resolutions": {
+    "@types/react": "16.9.34"
+  }
+}
