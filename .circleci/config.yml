@@ -164,11 +164,13 @@ jobs:
       #       echo "REACT_APP_AUTH0_DOMAIM=$QA_AUTH0_DOMAIM" >> frontend/.env.production.local &&
       #       echo "GENERATE_SOURCEMAP=true" >> .env.production.local
 
-      - *build_frontend
+      # - *build_frontend
 
-      - run:
-          name: Publish frontend to QA
-          command: yarn publish:frontend:qa
+      # - run:
+      #     name: Publish frontend to QA
+      #     command: yarn publish:frontend:qa
+
+      - *build_web
 
   deploy-prod:
     <<: *container_config
