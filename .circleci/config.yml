@@ -75,6 +75,11 @@ aliases:
       name: Build frontend
       command: yarn build:frontend
 
+  - &build_web
+    run:
+      name: Build web
+      command: cd web && yarn deploy:prod
+
   - &run_linter
     run:
       name: Run Linter
@@ -199,11 +204,13 @@ jobs:
             echo "REACT_APP_AUTH0_DOMAIM=$PROD_AUTH0_DOMAIM" >> frontend/.env.production.local &&
             echo "GENERATE_SOURCEMAP=false" >> .env.production.local
 
-      - *build_frontend
+      # - *build_frontend
 
-      - run:
-          name: Publish frontend to PROD
-          command: yarn publish:frontend:prod
+      # - run:
+      #     name: Publish frontend to PROD
+      #     command: yarn publish:frontend:prod
+
+      - *build_web
 
 workflows:
   version: 2
