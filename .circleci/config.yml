@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  slack: circleci/slack@3.4.2
 # orbs:
 #   node: circleci/node@1.1.6
 # jobs:
@@ -24,6 +26,13 @@ aliases:
     working_directory: ~/egloo
 
   - &checkout checkout
+
+  - &discord
+    slack/status:
+      fail_only: true
+      mentions: 'USERID1,USERID2'
+      only_for_branches: only_for_branches
+      webhook: webhook
 
   - &build_only_filters
     filters:
@@ -134,6 +143,7 @@ jobs:
       - *run_prettier
       - *run_tests
       - *store_test_results
+      - *discord
 
   deploy-qa:
     <<: *container_config
@@ -175,6 +185,7 @@ jobs:
       #     command: yarn publish:frontend:qa
 
       - *build_web
+      - *discord
 
   deploy-prod:
     <<: *container_config
@@ -217,6 +228,7 @@ jobs:
       #     command: yarn publish:frontend:prod
 
       - *build_web
+      - *discord
 
 workflows:
   version: 2
