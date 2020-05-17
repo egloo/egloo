@@ -32,7 +32,7 @@ aliases:
       fail_only: false
       mentions: 'DaedalusX#9316'
       only_for_branches: master
-      webhook: webhook
+      webhook: $SLACK_WEBHOOK
 
   - &build_only_filters
     filters:
