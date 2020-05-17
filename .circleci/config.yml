@@ -30,7 +30,7 @@ aliases:
   - &discord
     slack/status:
       fail_only: false
-      mentions: 'DaedalusX#9316'
+      mentions: 'DaedalusX'
       only_for_branches: master
       webhook: $SLACK_WEBHOOK
 
