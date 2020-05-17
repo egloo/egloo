@@ -30,7 +30,7 @@ aliases:
   - &discord
     slack/status:
       fail_only: false
-      mentions: '<@DaedalusX>'
+      mentions: '&707030645414559745' # egloo role
       only_for_branches: master
       webhook: $SLACK_WEBHOOK
 
