@@ -1,4 +1,4 @@
-module "ec2_cluster" {
+module "keycloak_ec2_cluster" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "2.13.0"
 
