@@ -1,13 +1,14 @@
 import * as Keycloak from 'keycloak-js';
 
-// keycloak init options
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/auth' : 'https://keycloak.egloo.com/auth'
+
 export const initOptions = {
   clientId: 'egloo-react-web',
   onLoad: 'login-required',
 //   onLoad: 'check-sso',
   realm: 'egloo', 
   silentCheckSsoRedirectUri: window.location.origin,
-  url: 'http://localhost:8080/auth',
+  url,
 }
 
 // Setup Keycloak instance as needed
