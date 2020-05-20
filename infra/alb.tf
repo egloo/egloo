@@ -1,6 +1,6 @@
 module "keycloak_alb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "~> 5.0"
+  version = "5.6.0"
 
   name = "keycloak"
 
