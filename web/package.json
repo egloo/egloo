@@ -13,7 +13,7 @@
     "@material-ui/icons": "4.9.1",
     "@react-keycloak/web": "1.0.5",
     "arwes": "1.0.0-alpha.5",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "bootstrap": "4.4.1",
     "keycloak-js": "8.0.2",
     "lodash": "4.17.15",
